@@ -1,8 +1,13 @@
 package com.example.demo;
 
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api")
 public class HelloController {
-    public String sayHello(String name) {
+
+    @GetMapping("/hello")
+    public String sayHello(@RequestParam(defaultValue = "World") String name) {
         return "Hello, " + name + "!";
     }
 }
-
